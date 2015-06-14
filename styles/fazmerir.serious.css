@@ -1,0 +1,22 @@
+.fazmerir-serious{
+	/* color: blue; */
+	padding: 0px;
+	line-height: 1em;	
+}
+.fazmerir-serious *{
+	display: inline-flex;	
+}
+.fazmerir-serious .prefix{
+	font-size: 30%;
+    
+	line-height: 2em;
+	vertical-align: middle;
+}
+.fazmerir-serious .cents{
+	font-size: 50%;
+    
+	vertical-align: middle;
+	line-height: 1.5;
+	padding: 0px;
+	margin: 0px;
+}
