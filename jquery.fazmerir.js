@@ -99,7 +99,9 @@
 		});
 		
 		// Append Stylesheet
-		var href = '../styles/fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
+		var stylespath = 'styles/'; // CDN https://cdn.rawgit.com/tonetlds/fazmerir.js/master/styles/
+
+		var href = stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
 		if ( $('#fazmerir_css').length ) {
 
 			$('#fazmerir_css').attr({
