@@ -234,7 +234,11 @@ $( function(){
 
     select.change(function(){
         var style = $(this).val();
+<<<<<<< HEAD
         $("link#fazmerir_css").attr("href", cdn+'fazmerir.'+style+'.css' );
+=======
+        $("link#fazmerir_css").attr("href", '../styles/fazmerir.'+style+'.css' );
+>>>>>>> c918460f858221a0fee4889d1861358c27746863
 
         var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
         $('#demo').text( text ).fazMeRir({              
