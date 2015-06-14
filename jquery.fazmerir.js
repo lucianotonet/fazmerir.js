@@ -101,7 +101,6 @@
 		});
 		
 		// Append Stylesheet		
-
 		var href = fazmerirOptions.stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
 		if ( $('#fazmerir_css').length ) {
 
