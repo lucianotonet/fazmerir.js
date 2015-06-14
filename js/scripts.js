@@ -234,7 +234,8 @@ $( function(){
 
     select.change(function(){
         var style = $(this).val();
-        $("link#fazmerir_css").attr("href", cdn+'fazmerir.'+style+'.css' );
+
+        // $("link#fazmerir_css").attr("href", cdn+'fazmerir.'+style+'.css' );
 
         var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
         $('#demo').text( text ).fazMeRir({              
