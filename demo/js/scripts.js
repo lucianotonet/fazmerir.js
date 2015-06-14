@@ -5,6 +5,7 @@ jQuery( function(){
 	
 	jQuery( '#demo' ).fazMeRir({				
 		'style' : 'default',
+		'stylespath': '../styles/',
 		'prefix': 'R$ ',
 		'centsSeparator': ',',
 		'thousandsSeparator': '.'
@@ -14,6 +15,7 @@ jQuery( function(){
 		var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
 		$('#demo').text( text ).fazMeRir({				
 			'style' : $( '#inputFazmerir_style option:selected' ).val(),
+			'stylespath': '../styles/',
 			'prefix': $('#fzmr_prefix').val(),
 			'suffix': $('#fzmr_suffix').val()
 		});		
@@ -47,6 +49,7 @@ jQuery( function(){
 		var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
 		$('#demo').text( text ).fazMeRir({				
 			'style' : $( '#inputFazmerir_style option:selected' ).val(),
+			'stylespath': '../styles/',
 			'prefix': $('#fzmr_prefix').val(),
 			'suffix': $('#fzmr_suffix').val()
 		});		

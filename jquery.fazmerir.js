@@ -37,7 +37,9 @@
 		// FazMeRir Defaults
 		var fazmerirDefaults = 
 		{
-			style: 'default'
+			style: 'default',
+			stylespath: 'styles/'  // CDN https://cdn.rawgit.com/tonetlds/fazmerir.js/master/styles/
+			// stylespath: 'https://rawgit.com/tonetlds/fazmerir.js/master/styles/' // Low-traffic tests
 		};
 		var fazmerirOptions = $.extend( fazmerirDefaults, parameters );		
 		
@@ -99,7 +101,7 @@
 		});
 		
 		// Append Stylesheet
-		var stylespath = 'styles/'; // CDN https://cdn.rawgit.com/tonetlds/fazmerir.js/master/styles/
+		var stylespath = fazmerirOptions.stylespath;
 
 		var href = stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
 		if ( $('#fazmerir_css').length ) {
