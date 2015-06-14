@@ -100,10 +100,9 @@
 
 		});
 		
-		// Append Stylesheet
-		var stylespath = fazmerirOptions.stylespath;
+		// Append Stylesheet		
 
-		var href = stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
+		var href = fazmerirOptions.stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
 		if ( $('#fazmerir_css').length ) {
 
 			$('#fazmerir_css').attr({
