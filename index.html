@@ -9,18 +9,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>FazMeRir.js</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.1.34/css/materialdesignicons.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Demo CSS -->
+	<link rel="stylesheet" href="../demo/css/style.css">
+
+	<!-- Dinamic CSS -->
+	<!-- <link rel="stylesheet" href="" id="fazmerir_css"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,25 +50,25 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <span class="light">Start</span> Bootstrap
+                    :) FazMeRir<span class="light">.js</span>
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <!-- Hidden li included to remove active class from documentation link when scrolled up past documentation section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#documentation">Docs</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#download">Download</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contribute">Contribute</a>
                     </li>
                 </ul>
             </div>
@@ -74,9 +83,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Grayscale</h1>
-                        <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+						
+						<h1 id="demo" class="fazmerir brand-heading"></h1>
+
+						<p class="intro-text">
+
+							<div class="form-inline">					
+								<label for="inputFazmerir_style" class="">Style: </label>
+								<select name="fazmerir_style" id="inputFazmerir_style" class="form-control"></select>
+							</div>
+						</p>
+						<p class="intro-text">	
+							<div class="collapse" id="collapseExample">				
+								<div class="form-inline">		
+									<label for="fzmr_prefix">Try here -></label>			
+									<input type="text" class="form-control input-sm text-right" id="fzmr_prefix" placeholder="prefix" value="R$ ">				
+									<input type="text" class="form-control input-sm price_format" id="fzmr_amount" placeholder="Amount" value="24.90">
+									<input type="text" class="form-control input-sm" id="fzmr_suffix" placeholder="suffix" value="">				
+								</div>	
+								<br>							
+								<pre class="text-left">jQuery( 'your-element' ).fazMeRir();</pre>														
+							</div>
+
+							<br>
+							<a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+								<i class="fa fa-code"></i> See code
+							</a>
+							<a href="#" class="btn btn-success"><i class="mdi mdi-cloud-download"></i> Download</a>
+							<a href="#" class="btn btn-default"><i class="mdi mdi-github-box"></i> Contribute</a>
+                        
+                        </p>
+                        <a href="#documentation" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -85,11 +122,11 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <!-- Documentation Section -->
+    <section id="documentation" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
+                <h2>Documentation Grayscale</h2>
                 <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
                 <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
                 <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
@@ -110,11 +147,11 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
+    <!-- Contribute Section -->
+    <section id="contribute" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
+                <h2>Contribute Start Bootstrap</h2>
                 <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
                 <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
                 </p>
@@ -155,8 +192,18 @@
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
+    <!-- GH Pages JavaScript -->
+    <script src="js/scripts.js"></script>
+
+
+    <!-- FazMeRir Dependencies -->		 
+	<script src='http://cdn.rawgit.com/flaviosilveira/Jquery-Price-Format/master/jquery.price_format.js'></script>
+	<script src='http://cdn.rawgit.com/davatron5000/Lettering.js/master/jquery.lettering.js'></script>	
+	<!-- FazMeRir Plugin -->
+	<script src="https://cdn.rawgit.com/tonetlds/fazmerir.js/master/jquery.fazmerir.js"></script>
+
+    <!-- Demo Scripts -->
+	<script src="https://cdn.rawgit.com/tonetlds/fazmerir.js/master/demo/js/scripts.js"></script>
 
 </body>
 
