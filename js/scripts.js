@@ -237,7 +237,7 @@ $( function(){
 
         // $("link#fazmerir_css").attr("href", cdn+'fazmerir.'+style+'.css' );
 
-        var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
+        var text = $('#fzmr_amount').val();
         $('#demo').text( text ).fazMeRir({              
             'style' : $( '#inputFazmerir_style option:selected' ).val(),
             'stylespath': cdn,
