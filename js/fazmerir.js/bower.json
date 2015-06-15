@@ -1,0 +1,14 @@
+{
+  "name": "fazmerirjs",
+  "version": "0.0.1",
+  "main": "jquery.fazmerir.js",
+  "ignore": [
+    "demo",
+    "**/.*"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2",
+    "Jquery-Price-Format": "flaviosilveira/Jquery-Price-Format#~2.0.0",
+    "letteringjs": "davatron5000/Lettering.js#~0.7.0"
+  }
+}

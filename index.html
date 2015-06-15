@@ -59,11 +59,11 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#documentation">Docs</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Download</a>
-                    </li>
+                        <a class="page-scroll" href="#documentation">Docs</a>
+                    </li>                    
                     <li>
                         <a class="page-scroll" href="#contribute">Contribute</a>
                     </li>
@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 						
-						<h1 id="demo" class="fazmerir brand-heading"></h1>
+						<h1 id="demo" class="fazmerir brand-heading"></h1>                        
 
 						<p class="intro-text">
 
@@ -91,26 +91,30 @@
 							</div>
 						</p>
 						<p class="intro-text">	
-							<div class="collapse" id="collapseExample">				
+							<div class="collapse" id="collapse_example">				
 								<div class="form-inline">		
-									<label for="fzmr_prefix">Try here -></label>			
+									<label for="fzmr_prefix">Try here <i class="fa fa-arrow-right"></i></label>			
 									<input type="text" class="form-control input-sm text-right" id="fzmr_prefix" placeholder="prefix" value="R$ ">				
 									<input type="text" class="form-control input-sm price_format" id="fzmr_amount" placeholder="Amount" value="24.90">
 									<input type="text" class="form-control input-sm" id="fzmr_suffix" placeholder="suffix" value="">				
 								</div>	
-								<br>							
-								<pre class="text-left">jQuery( 'your-element' ).fazMeRir();</pre>														
+								<br>		
+                                
+                                <div class="text-left" id="example">               
+                                    <pre class="text-left">jQuery( '.h1' ).fazMeRir();</pre>          
+                                </div>      
+																					
 							</div>
 
 							<br>
-							<a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							<a class="btn btn-default" data-toggle="collapse" href="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
 								<i class="fa fa-code"></i> See code
 							</a>
-							<a href="#" class="btn btn-success"><i class="mdi mdi-cloud-download"></i> Download</a>
-							<a href="#" class="btn btn-default"><i class="mdi mdi-github-box"></i> Contribute</a>
+							<a href="https://github.com/tonetlds/fazmerir.js/archive/master.zip" class="btn btn-success"><i class="mdi mdi-cloud-download"></i> Download</a>
+							<a href="#contribute" class="btn btn-default page-scroll"><i class="mdi mdi-github-box"></i> Contribute</a>
                         
                         </p>
-                        <a href="#documentation" class="btn btn-circle page-scroll">
+                        <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -119,61 +123,329 @@
         </div>
     </header>
 
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1><a>FazMeRir.js</a>, a jQuery plugin to show pretty prices in your site</h1>             
+                <!-- <p>"Faz-me rir" é uma expressão popular brasileira que se refere à dinheiro.</p> -->
+                <p>This plugin is a graceful combination of <a href="http://letteringjs.com/" target="_new">Lettering.js</a>, <a href="http://jquerypriceformat.com/" target="_new">priceFormat.js</a> and more than <br/>
+                    <span class="fazmerir_hero"><a class="fazmerir-styles-count">2</a> predefined CSS styles</span><br>
+                    from the community.</p>   
+                    
+            </div>
+        </div>
+    </section>   
+
+    <div class="jumbotron" style="background: url('img/bg-demo.png') center center fixed;"></div>
+
     <!-- Documentation Section -->
     <section id="documentation" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Documentation Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+                <h2>How to use</h2>
+
+                <a class="pull-left btn btn-circle"><strong>1</strong></a> 
+                <p>After including <a href="http://jquery.com/" target="_new">jQuery 1.7.2+</a>, download and include <a href="http://letteringjs.com/" target="_new">Lettering.js</a>, <a href="http://jquerypriceformat.com/" target="_new">priceFormat.js</a> and <a href="https://github.com/tonetlds/fazmerir.js" target="_new">FazMeRir.js</a> in your project:
+                    <br>                    
+                    <pre class="text-left">&lt;!-- jQuery --&gt;
+&lt;script src="js/jquery.js"&gt;&lt;/script&gt;
+
+&lt;!-- FazMeRir Dependencies --&gt;         
+&lt;script src='js/jquery.price_format.js'&gt;&lt;/script&gt;
+&lt;script src='js/jquery.lettering.js'&gt;&lt;/script&gt;  
+
+&lt;!-- FazMeRir Plugin --&gt;
+&lt;script src="js/jquery.fazmerir.js"&gt;&lt;/script&gt;</pre>
+                </p>                
+
+                
+                <a class="pull-left btn btn-circle"><strong>2</strong></a>
+                <p>Define your price elements:
+                    <pre class="text-left">&lt;strong class="price"&gt;1234567&lt;/strong&gt;</pre>
+
+                    <small>* You don't need to specify the money format or cents separator here, it will be magicaly added after.</small>
+                </p>                
+
+                
+                <a class="pull-left btn btn-circle"><strong>3</strong></a>
+                <p>
+                    Select your element and call the <code>fazMeRir()</code> method:
+                    <pre class="text-left">$( '.price' ).fazMeRir();</pre>
+                </p>
+                <h3><a>All Done!</a></h3>
+                <p>
+                    This will be result in a sliced price element, each piece with contextual classes:
+                    <pre class="text-left">&lt;strong class="price <code>fazmerir-demo</code>"&gt;
+    &lt;span class="char1 <code>prefix</code>"&gt;R&lt;/span&gt;
+    &lt;span class="char2 <code>prefix</code>"&gt;$&lt;/span&gt;
+    &lt;span class="char3 <code>prefix</code>"&gt; &lt;/span&gt;
+    &lt;span class="char4 <code>thousands</code>"&gt;1&lt;/span&gt;
+    &lt;span class="char5 <code>thousands</code>"&gt;2&lt;/span&gt;
+    &lt;span class="char6 <code>thousands</code> <code>separator</code>"&gt;.&lt;/span&gt;
+    &lt;span class="char7"&gt;3&lt;/span&gt;
+    &lt;span class="char8"&gt;4&lt;/span&gt;
+    &lt;span class="char9"&gt;5&lt;/span&gt;
+    &lt;span class="char10 <code>cents</code> <code>separator</code>"&gt;,&lt;/span&gt;
+    &lt;span class="char11 <code>cents</code>"&gt;6&lt;/span&gt;
+    &lt;span class="char12 <code>cents</code>"&gt;7&lt;/span&gt;
+&lt;/strong&gt;</pre>
+                </p>
+                <h4>Great! Now you have <br><a class="fazmerir_hero">individual characters control!</a></h4>
+                
+                <span class="row">
+                    <p>Now you can easely style your prices using the semantical classes, like this:</p> 
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">                        
+<pre class="text-left"><code>.price</code> {
+    color: goldenrod;
+}
+<code>.price .prefix</code> {
+    font-size: 40%;    
+    vertical-align: top;
+}
+<code>.price .cents</code> {
+    font-size: 50%;    
+    vertical-align: bottom;
+}</pre>
+                                
+                    </div>                
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h1 class="price brand-heading">1234567</h1>
+                                <style>
+                                .price {
+                                    color: goldenrod;
+                                    font-size: 400%;
+                                    margin: 20% 0px;
+                                }
+                                .price .prefix {
+                                    font-size: 40%;
+                                    line-height: 2em;
+                                    vertical-align: top;
+                                }
+                                .price .cents {
+                                    font-size: 40%;
+                                    line-height: 2em;
+                                    vertical-align: bottom;
+                                }</style>                               
+                            </div>
+                        </div>
+                    </div>                
+                   
+                </span>
+
+                <p>...or you can use any of <strong class="fazmerir-styles-count">2</strong> predefined styles, just setting 'style' parameter with the class name of style, in arguments of method:</p>
+
+                <pre class="text-left">$( '.price' ).fazMeRir(<code>{
+    'style' : 'serious',
+}</code>);</pre>
+                
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
+    <div class="jumbotron" style="background: url('img/bg-demo.png') center center fixed;"></div>
+        
+    <section class="content-section text-center">                
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>OPTIONS</h2>
+            <p>                
+                <div class="panel panel-default">                   
+                    <table class="table table-bordered">   
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>                 
+                        <tbody>  
+                            <tr>
+                                <td>stylespath:</td>
+                                <td>
+                                    <code>String</code><br>
+                                    The absolute uri to the styles folder 
+                                </td>
+                                <td></td>
+                            </tr>                      
+                            <tr>
+                                <td>style:</td>
+                                <td><code>String</code> (optional)<br>The class (name) of predefined style.<br>The respective CSS file needs to be present in the styles path.</td>
+                                <td>
+                                    <span class="fazmerir-styles-list"></span>
+                                </td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                    
+                </div>     
+            </p>
+            <p>You can pass any parameter from <a href="http://jquerypriceformat.com/" target="_new">priceFormat.js</a> that it will be work like a charm.
+                <br>  
+                <div class="panel panel-default">                   
+                    <table class="table table-bordered">   
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                            </tr>
+                        </thead>                 
+                        <tbody>                        
+                            <tr>
+                                <td>prefix:</td>
+                                <td><code>String</code></td>
+                                <td><code>'US$ '</code></td>
+                            </tr>
+                            <tr>
+                                <td>suffix:</td>
+                                <td><code>String</code></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>centsSeparator:</td>
+                                <td><code>String</code></td>
+                                <td><code>'.'</code></td>
+                            </tr>
+                            <tr>
+                                <td>thousandsSeparator:</td>
+                                <td><code>String</code></td>
+                                <td><code>','</code></td>
+                            </tr>
+                            <tr>
+                                <td>limit:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                            <tr>
+                                <td>centsLimit:</td>
+                                <td><code>Number</code></td>
+                                <td><code>2</code></td>
+                            </tr>
+                            <tr>
+                                <td>clearPrefix:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                            <tr>
+                                <td>clearSufix:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                            <tr>
+                                <td>allowNegative:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                            <tr>
+                                <td>insertPlusSign:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                            <tr>
+                                <td>clearOnEmpty:</td>
+                                <td><code>Boolean</code></td>
+                                <td><code>FALSE</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    
+                </div>              
+            </p>
+
+            <p>
+                <span class="row">                    
+                Examples:
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">                        
+<pre class="text-left">
+$( '.price' ).fazMeRir({                
+    'style': 'serious',
+    'stylespath': 'js/styles/',
+    'prefix': 'R$ ',
+    'centsSeparator': ',',
+    'thousandsSeparator': '.',
+    'suffix': '/mês',
+});</pre>
+                                
+                    </div>                
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+<pre class="text-left">
+$( '.price' ).fazMeRir({                
+    'style': 'golden',
+    'stylespath': 'bower_components/fazmerir.js/styles/',
+    'prefix': 'US$ ',
+    'centsSeparator': '.',
+    'thousandsSeparator': ',',    
+});</pre>
+                    </div>                
+                   
+                </span>
+
+
+
+            </p>
+        </div>       
+        <div class="clearfix"></div> 
+    </section>
+    
+    <!-- Contribute Section -->
+    <section id="contribute"  class="content-section text-center">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <h2><span class="fazmerir_hero">Contribute</span> to <a>FazMeRir.js</a> with <a class="fazmerir_hero">your style</a></h2>
+                    <p>I know that you are a great CSS artist. You can help all community with your masterpiece price design. Or anything that you want...</p>
+                    <a href="https://github.com/tonetlds/fazmerir.js" class="btn btn-default btn-lg"><i class="fa fa-code-fork"></i> Fork this on GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contribute Section -->
-    <section id="contribute" class="container content-section text-center">
+    <section class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contribute Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
+                <h2>Contribute with your <a class="fazmerir_hero">feedback</a></h2>
+                <p>Feel invited to email me to provide some feedback of this plugin, give me suggestions for new functions and options, or to just say hello!</p>
+                <p><a href="mailto:fazmerir.js@lucianotonet.com"><i class="fa fa-envelope"></i> fazmerir.js@lucianotonet.com</a>
                 </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <div id="map"></div>
+    <div class="jumbotron" style="background: url('img/bg-demo.png') center center fixed;"></div>
 
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
+            <h2>
+                <a class="page-scroll fazmerir_hero" href="#page-top">
+                    FazMeRir<span class="light">.js</span>
+                </a><br>
+                <small>by<br><a href="https://github.com/tonetlds">@tonetlds</a></small>
+            </h2>
+
+            <p class="text-center">
+                <img src="img/avatar.png" class="img-responsive img-circle" alt="Image" style="margin: 10px auto 40px;">
+            </p>
+
+           <p> 
+                <ul class="list-inline banner-social-buttons">
+                   <li>
+                       <a href="https://twitter.com/LucianoTonet" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name"> Twitter</span></a>
+                   </li>
+                   <li>
+                       <a href="https://github.com/tonetlds" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"> Github</span></a>
+                   </li>                   
+                   <li>
+                       <a href="https://plus.google.com/+LucianoTonet/" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name"> Google+</span></a>
+                   </li>
+               </ul>
+            </p>
+            <small>Thanks for aprecciate.</small>
         </div>
     </footer>
 
@@ -185,10 +457,7 @@
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
+    
     <!-- GH Pages JavaScript -->
     <script src="js/scripts.js"></script>
 
@@ -197,7 +466,8 @@
 	<script src='http://cdn.rawgit.com/flaviosilveira/Jquery-Price-Format/master/jquery.price_format.js'></script>
 	<script src='http://cdn.rawgit.com/davatron5000/Lettering.js/master/jquery.lettering.js'></script>	
 	<!-- FazMeRir Plugin -->
-	<script src="https://cdn.rawgit.com/tonetlds/fazmerir.js/master/jquery.fazmerir.js"></script>    
+    <!-- CDN https://rawgit.com/tonetlds/fazmerir.js/master/jquery.fazmerir.js -->
+	<script src="js/fazmerir.js/jquery.fazmerir.js"></script>    
 
 </body>
 

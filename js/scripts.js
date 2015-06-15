@@ -29,154 +29,6 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-// Google Maps Scripts
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
-
-function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 15,
-
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
-
-        // Disables the default Google Maps UI components
-        disableDefaultUI: true,
-        scrollwheel: false,
-        draggable: false,
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [{
-            "featureType": "water",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 17
-            }]
-        }, {
-            "featureType": "landscape",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 20
-            }]
-        }, {
-            "featureType": "road.highway",
-            "elementType": "geometry.fill",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 17
-            }]
-        }, {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 29
-            }, {
-                "weight": 0.2
-            }]
-        }, {
-            "featureType": "road.arterial",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 18
-            }]
-        }, {
-            "featureType": "road.local",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 16
-            }]
-        }, {
-            "featureType": "poi",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 21
-            }]
-        }, {
-            "elementType": "labels.text.stroke",
-            "stylers": [{
-                "visibility": "on"
-            }, {
-                "color": "#000000"
-            }, {
-                "lightness": 16
-            }]
-        }, {
-            "elementType": "labels.text.fill",
-            "stylers": [{
-                "saturation": 36
-            }, {
-                "color": "#000000"
-            }, {
-                "lightness": 40
-            }]
-        }, {
-            "elementType": "labels.icon",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        }, {
-            "featureType": "transit",
-            "elementType": "geometry",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 19
-            }]
-        }, {
-            "featureType": "administrative",
-            "elementType": "geometry.fill",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 20
-            }]
-        }, {
-            "featureType": "administrative",
-            "elementType": "geometry.stroke",
-            "stylers": [{
-                "color": "#000000"
-            }, {
-                "lightness": 17
-            }, {
-                "weight": 1.2
-            }]
-        }]
-    };
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('map');
-
-    // Create the Google Map using out element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
-
-    // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-    var image = 'img/map-marker.png';
-    var myLatLng = new google.maps.LatLng(40.6700, -73.9400);
-    var beachMarker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        icon: image
-    });
-}
-
 
 $(function() {
 
@@ -191,26 +43,44 @@ $( function(){
     // Just for demo purposes...
     //   See the documentation
     
-    var cdn = 'https://cdn.rawgit.com/tonetlds/fazmerir.js/master/styles/';
+    // var stylespathuri = 'https://cdn.rawgit.com/tonetlds/fazmerir.js/master/styles/';
+    var stylespathuri = 'js/fazmerir.js/styles/';
 
     $( '#demo' ).fazMeRir({                
         'style' : 'default',
-        'stylespath': cdn,
+        'stylespath': stylespathuri,
         'prefix': 'R$ ',
         'centsSeparator': ',',
         'thousandsSeparator': '.'
+    });
+
+    $( '.price' ).fazMeRir({                
+        'style' : 'demo',
+        'stylespath': stylespathuri,
+        'prefix': 'R$ ',
+        'centsSeparator': ',',
+        'thousandsSeparator': '.'
+    });
+
+    $( '.example1' ).fazMeRir({                
+        'style': 'serious',
+        'stylespath': stylespathuri,
+        'prefix': 'R$ ',
+        'centsSeparator': ',',
+        'thousandsSeparator': '.',
+        'suffix': '/mês',
     });
 
     $('input').on('keyup', function(event) {                                    
         var text = $('#fzmr_amount').val();
         $('#demo').text( text ).fazMeRir({              
             'style' : $( '#inputFazmerir_style option:selected' ).val(),
-            'stylespath': cdn,
+            'stylespath': stylespathuri,
             'prefix': $('#fzmr_prefix').val(),
             'suffix': $('#fzmr_suffix').val()
         });     
 
-        $('#example pre').text( displaySnippet() );         
+        $('#example').find('pre').text( displaySnippet() );         
 
     });
 
@@ -230,22 +100,24 @@ $( function(){
         select.append($("<option />")
             .val( value )
             .text( value ));
+
+        $('.fazmerir-styles-list').append('<br>'+value);
     });
+
+    $('.fazmerir-styles-count').text( styles.length );
 
     select.change(function(){
         var style = $(this).val();
 
-        // $("link#fazmerir_css").attr("href", cdn+'fazmerir.'+style+'.css' );
-
         var text = $('#fzmr_amount').val();
         $('#demo').text( text ).fazMeRir({              
             'style' : $( '#inputFazmerir_style option:selected' ).val(),
-            'stylespath': cdn,
+            'stylespath': stylespathuri,
             'prefix': $('#fzmr_prefix').val(),
             'suffix': $('#fzmr_suffix').val()
         });     
 
-        $('#example pre').text( displaySnippet() );
+        $('#example').find('pre').text( displaySnippet() );
         
     }).change();
 
