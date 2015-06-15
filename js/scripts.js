@@ -147,5 +147,10 @@ $( function(){
         output += "});\n";
         return output;
     }
+
+    $('a').on('click', function() {
+        ga('send', 'event', 'button', 'click', $(this).text() );
+    });
+    
     
 });
