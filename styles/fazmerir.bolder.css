@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+
+.fazmerir-bolder{
+	font-family: 'Lato', sans-serif;
+	letter-spacing: -3px;
+}
+.fazmerir-bolder span{
+	
+}
+.fazmerir-bolder .prefix{
+    font-size: 50%;
+	
+    text-align: right;
+}
+.fazmerir-bolder .cents{
+	font-size: 38%;
+}
+.fazmerir-bolder .suffix{
+	font-size: 30%;
+}
