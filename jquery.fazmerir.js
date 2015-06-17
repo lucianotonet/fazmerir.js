@@ -138,7 +138,8 @@
 		'demo',
 		'default',
 		'golden',
-		'serious'		
+		'serious',
+		'bolder'		
 	];
 
 })( jQuery );
