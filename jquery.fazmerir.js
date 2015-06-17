@@ -57,13 +57,42 @@
 			// PriceFormat + Lettering
 			el.priceFormat( priceFormatOptions );
 			el.lettering( letteringOptions.split );
-
-			// Priority to class element pre-defined via ATRIBUTTE
-			if( !el.is('[class^="fazmerir-"]') ){							
+			
+			// Add the classe, if not have
+			if( !el.hasClass('[class^="fazmerir-'+fazmerirOptions.style+'"]') ){							
 				el.addClass( 'fazmerir-'+fazmerirOptions.style );
 			}	
+			
+			// Get all classes of element
+			var classes = el.attr('class').split(' ');			
+			classes = classes.filter(function(v){return v!==''}); // remove empties
+			
+			var stylesToLoad;
+			$.each(classes, function(index, val) {
+				if( val.indexOf('fazmerir-') > -1 ){
+					stylesToLoad = [ classes[index] ];
+				}
+			});
 
-			// Add the classes
+			console.log( stylesToLoad );
+
+			// Append Stylesheet styles	
+			var href = fazmerirOptions.stylespath+'fazmerir.'+fazmerirOptions.style+'.css';
+						
+			if ( $('#fazmerir-'+fazmerirOptions.style+'-stylesheet' ).length < 1 ) {			
+				var head = document.head
+				  , link = document.createElement('link');
+
+				link.type = 'text/css';
+				link.id   = 'fazmerir-'+fazmerirOptions.style+'-stylesheet';
+				link.rel  = 'stylesheet';
+				link.href = href;
+
+				head.appendChild(link);		
+			}
+
+
+			// Add the contextual classes
 			var prefixLegth 		= priceFormatOptions.prefix.length;
 			var suffixLegth 		= priceFormatOptions.suffix.length;
 			var centsSeparator  	= priceFormatOptions.centsSeparator;
@@ -73,7 +102,9 @@
 			var totalChars = el.children('span').length;			
 
 			// Each CHAR / WORD
-			el.find('span').each(function( index ) {		        
+			el.find('span').each(function( index ) {		
+
+				$(this).removeClass();
 				
 				// Logic to insert classes
 				if( index < prefixLegth ){
@@ -99,28 +130,6 @@
 			});
 
 		});
-		
-		// Append Stylesheet		
-		var href = fazmerirOptions.stylespath+'fazmerir.'+fazmerirOptions.style+'.css?'+Math.random();
-		if ( $('#fazmerir_css').length ) {
-
-			$('#fazmerir_css').attr({
-				'href': href			
-			});
-
-		}else{
-
-			var head = document.head
-			  , link = document.createElement('link');
-
-			link.type = 'text/css';
-			link.id   = 'fazmerir_css';
-			link.rel  = 'stylesheet';
-			link.href = href;
-
-			head.appendChild(link);		
-
-		}
 
 	}		
 
@@ -129,7 +138,7 @@
 		'demo',
 		'default',
 		'golden',
-		'serious'
+		'serious'		
 	];
 
 })( jQuery );

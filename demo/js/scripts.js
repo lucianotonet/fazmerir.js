@@ -45,6 +45,15 @@ jQuery( function(){
 	select.change(function(){
 		var style = $(this).val();
 		$("link#fazmerir_css").attr("href", '../styles/fazmerir.'+style+'.css' );
+		
+		// Remove classes
+		var classes = $('#demo').attr('class').split(' ');			
+		classes 	= classes.filter(function(v){return v!==''}); // remove empties					
+		$.each(classes, function(index, val) {
+			if( val.indexOf('fazmerir-') > -1 ){
+				$('#demo').removeClass( classes[index] );
+			}
+		});							
 
 		var text = $('#fzmr_amount').val() + "" + $('#fzmr_suffix').val();
 		$('#demo').text( text ).fazMeRir({				
@@ -56,12 +65,7 @@ jQuery( function(){
 
 		$('#example pre').text( displaySnippet() );
 		
-	}).change();
-
-
-	$.each( styles, function(index, val) {
-		console.log( val );
-	});
+	}).change();	
 
 
 	function displaySnippet(){
